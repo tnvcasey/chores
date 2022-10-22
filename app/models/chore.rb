@@ -1,4 +1,4 @@
 class Chore < ApplicationRecord
-    has_many :members 
+    belongs_to :members 
     has_many :users, through: :members
 end

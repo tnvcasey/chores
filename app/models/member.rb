@@ -1,4 +1,4 @@
 class Member < ApplicationRecord
     belongs_to :user
-    belongs_to :chore
+    has_many :chores
 end
