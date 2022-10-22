@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_17_014905) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_22_011828) do
   create_table "chores", force: :cascade do |t|
     t.string "description"
     t.string "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "member_id"
   end
 
   create_table "members", force: :cascade do |t|
     t.string "name"
     t.string "picture"
-    t.integer "user_id"
-    t.integer "chore_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
