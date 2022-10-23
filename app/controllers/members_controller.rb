@@ -1,5 +1,4 @@
 class MembersController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
     
     def index
         members = Member.all 
@@ -31,11 +30,8 @@ class MembersController < ApplicationController
     private 
 
     def member_params
-        parmas.permit(:name, :picture)
+        params.permit(:name, :picture)
     end 
 
-    def record_invalid(invalid)
-        render json: { errors: "Validation Errors" }, status: :unprocessable_entity
-    end
     
 end

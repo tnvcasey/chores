@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-mom = User.create(username: "Mommy1")
+mom = User.create(username: "Mommy1", password: "password", password_confirmation: "password")
 
 lucy = Member.create(name: "Lucy", picture: "https://media.sciencephoto.com/c0/47/81/22/c0478122-800px-wm.jpg")
 jude = Member.create(name: "Jude", picture: "https://tse1.mm.bing.net/th?id=OIP.BhIIuHHqq2BDevn4MOdawgHaFj&pid=Api&P=0")
