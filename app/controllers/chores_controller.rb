@@ -1,5 +1,5 @@
 class ChoresController < ApplicationController
-    before_action : authorize
+    before_action :authorize
 
     def index
         chores = Chore.all 
