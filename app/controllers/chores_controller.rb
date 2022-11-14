@@ -1,23 +1,26 @@
 class ChoresController < ApplicationController
+    before_action : authorize
 
     def index
         chores = Chore.all 
         render json: chores
     end 
 
-    def show
-        chore = Chore.find_by(id: params[:id])
-        render json: chore
-    end 
-
     def create
         chore = Chore.create(chore_params)
         render json: chore, status: :created
-    end 
+    end
+
 
     private 
 
     def chore_params
-        params.permit(:description, :supplies, :directions)
+        params.permit(:description, :details)
+    end
+
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
     end
 end
+
+#Current

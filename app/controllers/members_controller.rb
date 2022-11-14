@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+    before_action :authorize
     
     def index
         members = Member.all 
@@ -32,6 +33,10 @@ class MembersController < ApplicationController
     def member_params
         params.permit(:name, :picture)
     end 
+
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+    end
 
     
 end
